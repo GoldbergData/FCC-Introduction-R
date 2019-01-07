@@ -105,6 +105,7 @@ blockquote {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
+    padding-bottom: 3em;
 }
 
 #heading {
