@@ -108,8 +108,15 @@ blockquote {
     padding-bottom: 3em;
 }
 
+#logo {
+    grid-column: 1 / -l;
+    margin: 0 auto;
+    padding: 10em;
+    width: 50%;
+    height: 50%;
+}
+
 #heading {
-    position: fixed;
     font-weight: normal;
     font-size: 25px;
     margin-left: 15px;
@@ -123,4 +130,32 @@ blockquote {
     justify-content: center;
     width: 100%;
     margin-left: 350px;
+}
+
+.shrink{
+    padding:10px; 
+}
+  
+.shrink img {
+    width: 50px;
+    height: 50px;
+}
+
+.header {
+    padding:20px;
+    top: 0;
+    position: fixed; 
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out ;
+    transition:all 0.5s ease-in-out ;
+    z-index: 999;
+    background:#FFF;
+    border-bottom: 1px solid #ddd;
+}
+.header img {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out ;
+    transition: all 0.5s ease-in-out ;
+    width: 200px;
+    height: 200px;;
 }
