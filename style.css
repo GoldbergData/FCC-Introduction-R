@@ -89,6 +89,7 @@ nav > ul {
     flex-direction: column;
     font-weight: bold;
     grid-gap: 3em;
+    padding: 3m;
     list-style-type: none;
 }
 
