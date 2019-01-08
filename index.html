@@ -10,23 +10,24 @@
     <script src="bower_components/aos/dist/aos.js"></script>
     <script> scr="transitions.js"</script>
     <script type="text/javascript" src="prism.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>R Introduction</title>
 </head>
 <body>
-    <header class="header">
-        <img class="shrink" src="img/r-logo.png" alt="">
-    </header>    
     <div class="wrapper">
+        <div id="header">
+            <div id="img-text">Introduction to R</div>
+            <img id="logo" src="img/r-logo.png" alt="Language logo" href="#history">
+        </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="#">Introduction to R</a></li>
+                <li><a href="#header" class="active">Welcome</a></li>
                 <li><a href="#history">History</a></li>
                 <li><a href="#what-is-r">What is R?</a></li>
                 <li><a href="#data-types">Data Types</a></li>
                 <li><a href="#functions">Functions</a></li>
                 <li><a href="#basics">Basics</a></li>
                 <li><a href="#references">References</a></li>
+                <li><a href="javascript:void(0);" class="icon" onclick="myFunction()"></a></li>
             </ul>
         </nav>
         <main id="main-doc">
@@ -275,7 +276,7 @@ class(`+`)
                     This allows for powerful creativity, such as the case with <span class="library">ggplot2</span>, a graphics library used for plotting in R. ggplot2 uses <code>`+`</code> to modify/add objects to the original ggplot call.
                     <pre><code class="language-r">ggplot(mtcars, aes(mpg, hp)) + geom_point() + labs(title = "HP vs. MPG")</code></pre>
                     <div class="rplot">
-                        <img src="img/rplot.png" alt="">
+                        <img id="rplot" src="img/rplot.png" alt="">
                     </div>
                 </p>
             </section>
@@ -310,11 +311,34 @@ Error in x%%2 : non-numeric argument to binary operator</code></pre>
 }</code></pre>
                 </p>
             </section>
-            <section class="main-section" id="References">
+            <section class="main-section" id="references">
                 <h1>References</h1>
                 <p>Documentation and text was based in <a href="https://cran.r-project.org/">CRAN</a>, <a href="https://r4ds.had.co.nz/">R for Data Science</a>, and <a href="https://en.wikipedia.org/wiki/R_(programming_language)">Wikipedia</a>.</p>
             </section>
         </main>
     </div>
+<script>
+// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+    document.getElementById("logo").style.height = "50px";
+    document.getElementById("logo").style.width = "50px";
+    document.getElementById("logo").style.padding = ".40em";
+    document.getElementById("logo").style.position = "fixed";
+    document.getElementById("logo").style.top = "0";
+    document.getElementById("logo").style.right = "0";
+    document.getElementById("img-text").style.display = "none";
+  } else {
+    document.getElementById("logo").style.height = "75%";
+    document.getElementById("logo").style.width = "75%";
+    document.getElementById("logo").style.padding = "1em";
+    document.getElementById("logo").style.position = "relative";
+    document.getElementById("img-text").style.fontSize = "30px";
+    document.getElementById("img-text").style.display = "block";
+  }
+}
+</script>
 </body>
 </html>
