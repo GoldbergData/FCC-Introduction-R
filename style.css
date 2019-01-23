@@ -8,6 +8,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -15,13 +16,14 @@ html, body {
     color: whitesmoke;
     font-family: 'Gill Sans MT', Calibri, 'Gill Sans', 'Trebuchet MS', sans-serif;
     scroll-behavior: smooth;
+    line-height: 1.5em;
+    height: 100%;
 }
 
 a {
     background-color: var(--nav-background);
     color: whitesmoke;
     text-decoration: none;
-    width: 100%;
 }
 
 .nav-bar > ul > li > a:hover {
@@ -30,7 +32,6 @@ a {
 
 table {
     border-collapse: collapse;
-    width: 50%;
     margin-top: 1em;
     margin-bottom: 1em;
 }
@@ -41,39 +42,46 @@ td, th {
     padding: 8px;
 }
 
+#header > h1 {
+    font-size: 35px;
+    max-width: 100%;
+    padding-bottom: 1em;
+}
+
+#header > p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
 h2 {
     font-size: 21px;
     padding: 1em 0 .25em 0;
+    max-width: 100%;
 }
 
 p {
     font-size: 18px;
     padding-top: .5em;
     padding-bottom: .25em;
-}
-
-section {
-    display: grid;
-    background-color: var(--primary-color);
-    padding: 1em;
+    max-width: 100%;
 }
 
 section > ul, ol {
     margin-left: 25px;
 }
 
-nav {
-    grid-area: nav;
-    justify-self: start;
+.nav-bar {
     background-color: var(--nav-background);
     overflow: hidden;
     color: whitesmoke;
     position: fixed;
     top: 0;
+    left: 0;
     width: 175px;
     height: 100%;
     min-width: 100px;
     padding: 1em;
+    z-index: 1;
 }
 
 nav > ul {
@@ -85,86 +93,144 @@ nav > ul {
     list-style-type: none;
 }
 
-code {
+pre, code {
     background-color: var(--code-color);
     font-size: 14px;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
 }
 
 blockquote {
     padding: 1em;
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-    padding-bottom: 2em;
-    grid-template-areas: 
-    "header header"
-    "main-doc main-doc";
-    justify-items: center;
-    align-items: center;
+#main-doc {
+    margin-left: 310px;
+    padding: 20px;
+    margin-bottom: 110px;
+    overflow-y: auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1.5em;
 }
 
 #header {
     grid-area: header;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-items: center;
     height: 100vh;
+    justify-content: center;
+    align-content: center;
+    padding: 5em 0 5em 0;
 }
 
 #img-text {
     color: whitesmoke;
     text-align: left;
-    margin-right: 500px;
     font-size: 30px;
     font-weight: bold;
+    max-width: 100%;
 }
 
 #logo {
     font-size: 35px;
-    width: 75%;
-    height: 75%;
+    width: 50%;
+    height: 50%;
     transition: 0.75s;
     padding: 1em;
-    margin: 0;
-}
-
-#main-doc {
-    grid-area: main-doc;
-    width: 50%;
+    margin: 0 auto;
 }
 
 #rplot {
-    max-width: 100%;
     padding: 1em 0 1em 0;
+    max-width: 100%;
 }
 
 @media screen and (max-width: 1253px) {
-    .nav-bar {
-        display: none;
-    }
-
-    #header > img {
-        width: 300px;
-        height: 300px;
-    }
-
-    #header > #img-text {
+    #img-text {
         font-size: 25px;
-        margin-right: 350px; 
+        margin-right: 350px;
+        padding: 1em;
+        width: 100%;
+        text-align: left;
+    }
+
+    #main-doc {
+        position: relative;
+        margin-left: 0px;
+        margin: 0 auto;
+        padding: 1em;
+      }
+
+    .nav-bar {
+        background-color: var(--nav-background);
+        overflow: hidden;
+        color: whitesmoke;
+        position: fixed;
+        width: 100%;
+        height: 5%;
+        z-index: 1;
+        font-size: 15px;
+    }
+
+    nav > ul {
+        display: flex;
+        flex-direction: row;
+        font-weight: bold;
+        list-style-type: none;
+        justify-content: center;
     }
 }
 
-@media screen and (max-width: 500px) {
-    #header > img {
-        width: 50%;
-        height: 50%;
+@media screen and (max-width: 900px) {
+
+    #header {
+        padding: 10em 0 10em 0;
     }
 
-    #header > #img-text {
+    #logo {
+        width: 50%;
+        height: 50%;
+        padding: 1em;
+        margin: 0 auto;
+        display: none;
+        visibility: invisible;
+    }
+
+    #header > h1 {
         font-size: 25px;
-        margin-right: 350px; 
+        margin-right: 0;
+        padding: .25em 0 .25em 0;  
+    }
+
+    #main-doc {
+        position: relative;
+        top: 0;
+        margin-left: 0px;
+        width: 100%;
+        padding: 2em;
+    }
+
+    .nav-bar {
+        background-color: var(--nav-background);
+        overflow: hidden;
+        color: whitesmoke;
+        position: relative;
+        width: 100%;
+        height: 30%;
+        z-index: 1;
+    }
+
+    nav > ul {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 1em;
+        font-weight: bold;
+        list-style-type: none;
+        justify-content: center;
     }
 }
